@@ -1,0 +1,29 @@
+mapping:
+  ###登录###
+  /sys/user/login:
+    request:
+      method: POST
+    service:
+      uri: com.enjoy.sample.sys.client.UserClient
+      method: login
+  ###登出###
+  /sys/user/logout:
+    request:
+      method: POST
+    service:
+      uri: com.enjoy.sample.sys.client.UserClient
+      method: logout
+  ###用户查询###
+  /sys/user/searchUserManageList:
+    request:
+      method: POST
+    service:
+      uri: com.enjoy.sample.sys.client.UserClient
+      method: searchUserManageList
+  ###用户数据权限###
+  /sys/user/getMyDataScope:
+    request:
+      method: POST
+    service:
+      uri: com.enjoy.sample.sys.client.UserClient
+      method: getMyDataScope

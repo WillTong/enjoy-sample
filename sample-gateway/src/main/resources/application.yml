@@ -1,0 +1,18 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: sample-gateway
+
+enjoy:
+  web:
+    session:
+      type: request
+      expire: 36000
+      request:
+        tokenName: Access-Token
+    app:
+      webConfig: classpath:/routers/*
+
+logging:
+  config: classpath:logback-boot.xml

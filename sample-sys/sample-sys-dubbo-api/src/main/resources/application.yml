@@ -1,0 +1,22 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: sample-sys
+
+logging:
+  config: classpath:logback-boot.xml
+
+dubbo:
+  scan:
+    basePackages: com.enjoy.sample.sys.api
+  application:
+    id: sample-sys
+    name: sample-sys
+  provider:
+    filter: exceptionFilter,providerFilter,-exception
+    timeout: 5000
+
+server:
+  servlet:
+    context-path: /

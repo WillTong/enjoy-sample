@@ -1,0 +1,14 @@
+spring:
+  profile: dev
+
+dubbo:
+  registry:
+    address: 127.0.0.1:2181
+    protocol: zookeeper
+    timeout: 20000
+  protocol:
+    port: 20016
+    threads: 100
+
+server:
+  port: 8080
