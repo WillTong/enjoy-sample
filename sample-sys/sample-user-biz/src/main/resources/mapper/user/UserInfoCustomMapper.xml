@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.enjoy.sample.user.dao.UserInfoCustomMapper" >
+  <resultMap id="UserManageListResultMap" type="com.enjoy.sample.user.model.dto.UserManageListDto">
+    <id column="ID" property="id" jdbcType="BIGINT" />
+    <result column="USER_CODE" property="userCode" jdbcType="VARCHAR" />
+    <result column="USER_PWD" property="userPwd" jdbcType="VARCHAR" />
+    <result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
+    <result column="CREATED_PERSON" property="createdPerson.userName"/>
+    <result column="CREATED_DATE" property="createdDate" jdbcType="TIMESTAMP" />
+    <result column="LAST_UPD_PERSON" property="lastUpdPerson.userName"/>
+    <result column="LAST_UPD_DATE" property="lastUpdDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+
+  <select id="selectUserManageList" parameterType="com.enjoy.sample.user.model.vo.UserManageListVo" resultMap="UserManageListResultMap">
+    select t.ID,t.USER_CODE,t.USER_NAME,c.USER_NAME CREATED_PERSON,t.CREATED_DATE,u.USER_NAME LAST_UPD_PERSON,t.LAST_UPD_DATE from USER_INFO t left join USER_INFO c on t.CREATED_BY=c.ID left join USER_INFO u on t.LAST_UPD_BY=u.ID
+    <where>
+      <if test="userCode != null" >
+        and t.USER_CODE=#{userCode}
+      </if>
+      <if test="userName != null" >
+        and t.USER_NAME like #{userName}
+      </if>
+      <if test="beginLoginDate != null" >
+        <![CDATA[
+        and t.CREATED_DATE >= #{beginLoginDate}
+        ]]>
+      </if>
+      <if test="endLoginDate != null" >
+        <![CDATA[
+        and t.CREATED_DATE <= #{endLoginDate}
+         ]]>
+      </if>
+    </where>
+  </select>
+</mapper>
