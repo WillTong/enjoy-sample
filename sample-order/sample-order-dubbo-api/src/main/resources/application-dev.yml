@@ -1,0 +1,55 @@
+spring:
+  profile: dev
+  datasource:
+    platform: mysql
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/order?useSSL=false&useUnicode=true&allowMultiQueries=true&characterEncoding=UTF8&serverTimezone=GMT%2B8&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: will
+    druid:
+      initialSize: 1
+      minIdle: 1
+      maxActive: 5
+      maxWait: 10000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 600000
+      validationQuery: select 1
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      maxPoolPreparedStatementPerConnectionSize: -1
+      filter:
+        stat:
+          enabled: true
+          db-type: mysql
+          mergeSql: true
+      stat-view-servlet:
+        enabled: true
+  redis:
+    host: 127.0.0.1
+    password: will
+    port: 6379
+    jedis:
+      pool:
+        max-idle: 500
+        min-idle: 50
+        max-active: 2000
+
+dubbo:
+  registry:
+    id: default
+    address: 127.0.0.1:2181
+    protocol: zookeeper
+    timeout: 20000
+  protocol:
+    id: dubbo
+    name: dubbo
+    port: 20002
+    threads: 100
+
+server:
+  port: 10002
+
+logging:
+  config: classpath:logback-boot.xml

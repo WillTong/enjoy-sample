@@ -23,18 +23,22 @@ public class DataScopeServiceImpl implements DataScopeService {
         OrgDatascopeExample orgDatascopeExample=new OrgDatascopeExample();
         orgDatascopeExample.createCriteria().andUserIdEqualTo(suId);
         List<OrgDatascope> orgDatascopeList=orgDatascopeMapper.selectByExample(orgDatascopeExample);
-        for(OrgDatascope orgDatascope:orgDatascopeList){
-            if(orgDatascope.getDepartmentId()!=null){
-                departmentScope.add(orgDatascope.getDepartmentId());
-            }else if(orgDatascope.getCompanyId()!=null){
-                companyScope.add(orgDatascope.getCompanyId());
+        if(orgDatascopeList.size()>0){
+            for(OrgDatascope orgDatascope:orgDatascopeList){
+                if(orgDatascope.getDepartmentId()!=null){
+                    departmentScope.add(orgDatascope.getDepartmentId());
+                }else if(orgDatascope.getCompanyId()!=null){
+                    companyScope.add(orgDatascope.getCompanyId());
+                }
             }
-        }
-        if(departmentScope.size()>0){
-            dataScopeMap.put("DEPARTMENT_ID",departmentScope.toArray());
-        }
-        if(companyScope.size()>0){
-            dataScopeMap.put("COMPANY_ID",companyScope.toArray());
+            if(departmentScope.size()>0){
+                dataScopeMap.put("DEPARTMENT_ID",departmentScope.toArray());
+            }
+            if(companyScope.size()>0){
+                dataScopeMap.put("COMPANY_ID",companyScope.toArray());
+            }
+        }else{
+            dataScopeMap.put("USER_ID",new Long[]{suId});
         }
         return dataScopeMap;
     }

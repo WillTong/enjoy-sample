@@ -2,20 +2,24 @@ spring:
   profiles:
     active: dev
   application:
-    name: sample-sys
+    name: sample-order
 
 logging:
   config: classpath:logback-boot.xml
 
 dubbo:
   scan:
-    basePackages: com.enjoy.sample.sys.api
+    basePackages: com.enjoy.sample.order.api
   application:
-    id: sample-sys
-    name: sample-sys
+    id: sample-order
+    name: sample-order
   provider:
     filter: exceptionFilter,mybatisHelperProviderFilter,-exception
     timeout: 5000
+
+mybatis:
+  configLocation: classpath:/mybatis-config-order.xml
+  mapperLocations: classpath*:/mapper/order/*Mapper.xml
 
 server:
   servlet:

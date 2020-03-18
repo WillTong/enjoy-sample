@@ -1,0 +1,8 @@
+mapping:
+  ###订单列表###
+  /order/orderinfo/searchOrderManagerList:
+    request:
+      method: POST
+    service:
+      uri: com.enjoy.sample.order.client.OrderClient
+      method: searchOrderManagerList

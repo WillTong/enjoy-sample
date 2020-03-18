@@ -16,6 +16,7 @@
     <modules>
         <module>sample-gateway</module>
         <module>sample-sys</module>
+        <module>sample-order</module>
     </modules>
 
     <dependencyManagement>
