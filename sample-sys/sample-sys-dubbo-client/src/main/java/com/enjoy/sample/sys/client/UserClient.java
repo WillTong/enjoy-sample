@@ -5,9 +5,11 @@ import com.enjoy.common.model.LoginResponse;
 import com.enjoy.common.model.LogoutResponse;
 import com.enjoy.common.model.Page;
 import com.enjoy.common.model.Response;
+import com.enjoy.sample.user.model.dto.UserInfoDto;
 import com.enjoy.sample.user.model.dto.UserManageListDto;
 import com.enjoy.sample.user.model.vo.UserManageListVo;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -44,4 +46,11 @@ public interface UserClient {
      * @return
      */
     Response<Map<String, Object[]>> getMyDataScope(@Param("suId")Long suId);
+
+    /**
+     * 批量根据id获取用户列表
+     * @param ids
+     * @return
+     */
+    Response<List<UserInfoDto>> getUserInfoByIds(List<Long> ids);
 }

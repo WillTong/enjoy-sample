@@ -22,6 +22,11 @@
             <artifactId>sample-order-biz</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.enjoy.sample</groupId>
+            <artifactId>sample-sys-dubbo-client</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>com.enjoy</groupId>

@@ -6,14 +6,17 @@ import com.enjoy.common.model.Page;
 import com.enjoy.common.model.Response;
 import com.enjoy.sample.org.service.DataScopeService;
 import com.enjoy.sample.sys.client.UserClient;
+import com.enjoy.sample.user.model.dto.UserInfoDto;
 import com.enjoy.sample.user.model.dto.UserManageListDto;
 import com.enjoy.sample.user.model.entity.UserInfo;
 import com.enjoy.sample.user.model.vo.UserManageListVo;
 import com.enjoy.sample.user.service.UserAuthService;
+import com.enjoy.sample.user.service.UserInfoService;
 import com.enjoy.sample.user.service.UserManageListService;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -29,6 +32,8 @@ public class UserApi implements UserClient {
     private UserAuthService userAuthService;
     @Autowired
     private UserManageListService userManageListService;
+    @Autowired
+    private UserInfoService userInfoService;
 
     @Override
     public LoginResponse<String> login(String userCode, String userPwd) {
@@ -49,5 +54,10 @@ public class UserApi implements UserClient {
     @Override
     public Response<Map<String, Object[]>> getMyDataScope(Long suId){
         return Response.buildResult(dataScopeService.getMyDataScope(suId));
+    }
+
+    @Override
+    public Response<List<UserInfoDto>> getUserInfoByIds(List<Long> ids){
+        return Response.buildResult(userInfoService.getUserInfoByIds(ids));
     }
 }

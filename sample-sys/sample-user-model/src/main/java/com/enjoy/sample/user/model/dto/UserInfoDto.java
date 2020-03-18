@@ -1,5 +1,7 @@
 package com.enjoy.sample.user.model.dto;
 
+import com.enjoy.sample.user.model.entity.UserInfo;
+
 import java.io.Serializable;
 
 public class UserInfoDto implements Serializable {
@@ -14,6 +16,12 @@ public class UserInfoDto implements Serializable {
         this.id = id;
         this.userCode = userCode;
         this.userName = userName;
+    }
+
+    public UserInfoDto(UserInfo userInfo){
+        this.id=userInfo.getId();
+        this.userCode=userInfo.getUserCode();
+        this.userName=userInfo.getUserName();
     }
 
     public Long getId() {

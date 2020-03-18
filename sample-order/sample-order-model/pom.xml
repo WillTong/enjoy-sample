@@ -11,4 +11,11 @@
 
     <artifactId>sample-order-model</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.enjoy.sample</groupId>
+            <artifactId>sample-user-model</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
 </project>
