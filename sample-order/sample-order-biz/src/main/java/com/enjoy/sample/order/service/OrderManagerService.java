@@ -17,4 +17,10 @@ public interface OrderManagerService {
      * @return
      */
     List<OrderInfo> searchOrderManagerList(Map<String, Object[]> dataScope);
+
+    /**
+     * 创建订单
+     * @param orderInfo
+     */
+    void addOrder(OrderInfo orderInfo,Long suId);
 }

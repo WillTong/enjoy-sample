@@ -1,8 +1,15 @@
 mapping:
   ###订单列表###
-  /order/orderinfo/searchOrderManagerList:
+  /order/order/searchOrderManagerList:
     request:
       method: POST
     service:
       uri: com.enjoy.sample.order.client.OrderClient
       method: searchOrderManagerList
+  ###增加订单###
+  /order/order/addOrder:
+    request:
+      method: POST
+    service:
+      uri: com.enjoy.sample.order.client.OrderClient
+      method: addOrder

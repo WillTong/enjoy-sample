@@ -1,8 +1,9 @@
 package com.enjoy.sample.org.model.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class OrgDepartment {
+public class OrgDepartment implements Serializable {
     private Long id;
 
     private String departmentName;

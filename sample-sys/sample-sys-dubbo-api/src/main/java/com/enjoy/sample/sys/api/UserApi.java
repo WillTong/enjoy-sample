@@ -12,7 +12,7 @@ import com.enjoy.sample.user.model.entity.UserInfo;
 import com.enjoy.sample.user.model.vo.UserManageListVo;
 import com.enjoy.sample.user.service.UserAuthService;
 import com.enjoy.sample.user.service.UserInfoService;
-import com.enjoy.sample.user.service.UserManageListService;
+import com.enjoy.sample.user.service.UserManageService;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -31,7 +31,7 @@ public class UserApi implements UserClient {
     @Autowired
     private UserAuthService userAuthService;
     @Autowired
-    private UserManageListService userManageListService;
+    private UserManageService userManageListService;
     @Autowired
     private UserInfoService userInfoService;
 

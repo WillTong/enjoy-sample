@@ -6,14 +6,14 @@ import com.enjoy.common.model.Page;
 
 import com.enjoy.sample.user.model.dto.UserManageListDto;
 import com.enjoy.sample.user.model.vo.UserManageListVo;
-import com.enjoy.sample.user.service.UserManageListService;
+import com.enjoy.sample.user.service.UserManageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class UserManageListServiceImpl implements UserManageListService {
+public class UserManageServiceImpl implements UserManageService {
     @Autowired
     private UserInfoCustomMapper sysUserCustomMapper;
 

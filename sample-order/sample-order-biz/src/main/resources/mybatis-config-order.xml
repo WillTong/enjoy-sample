@@ -13,5 +13,7 @@
         </plugin>
         <plugin interceptor="com.github.mybatis.helper.commonfield.CommonFieldSqlInterceptor">
         </plugin>
+        <plugin interceptor="com.github.mybatis.helper.dolog.DoLogSqlInterceptor">
+        </plugin>
     </plugins>
 </configuration>

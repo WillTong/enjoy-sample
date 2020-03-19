@@ -4,6 +4,7 @@ import com.enjoy.sample.org.model.entity.OrgDepartment;
 import com.enjoy.sample.org.model.entity.OrgDepartmentExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.session.RowBounds;
 
 public interface OrgDepartmentMapper {
     int countByExample(OrgDepartmentExample example);
@@ -16,7 +17,7 @@ public interface OrgDepartmentMapper {
 
     int insertSelective(OrgDepartment record);
 
-    List<OrgDepartment> selectByExample(OrgDepartmentExample example);
+    List<OrgDepartment> selectByExample(OrgDepartmentExample example, RowBounds rowBounds);
 
     OrgDepartment selectByPrimaryKey(Long id);
 

@@ -27,3 +27,10 @@ mapping:
     service:
       uri: com.enjoy.sample.sys.client.UserClient
       method: getMyDataScope
+  ###部门查询###
+  /sys/department/searchDepartmentManageList:
+    request:
+      method: POST
+    service:
+      uri: com.enjoy.sample.sys.client.DepartmentClient
+      method: searchDepartmentManageList

@@ -4,6 +4,6 @@ import com.enjoy.common.model.Page;
 import com.enjoy.sample.user.model.dto.UserManageListDto;
 import com.enjoy.sample.user.model.vo.UserManageListVo;
 
-public interface UserManageListService {
+public interface UserManageService {
     Page<UserManageListDto> searchUserManageList(UserManageListVo userManageListVo, Page page);
 }

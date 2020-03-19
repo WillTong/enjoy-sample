@@ -1,6 +1,7 @@
 package com.enjoy.sample.order.api;
 
 import com.enjoy.common.model.Response;
+import com.enjoy.common.utils.MethodUtil;
 import com.enjoy.sample.order.client.OrderClient;
 import com.enjoy.sample.order.model.dto.OrderManagerDto;
 import com.enjoy.sample.order.model.entity.OrderInfo;
@@ -10,7 +11,6 @@ import com.enjoy.sample.user.model.dto.UserInfoDto;
 import org.apache.dubbo.config.annotation.Reference;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.enjoy.common.utils.MethodUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,7 @@ public class OrderApi implements OrderClient {
 
     @Autowired
     private OrderManagerService orderManagerService;
-    @Reference
+    @Reference(check = false)
     private UserClient userClient;
 
     @Override
@@ -31,12 +31,19 @@ public class OrderApi implements OrderClient {
         List<UserInfoDto> userInfoDtoList= MethodUtil.convertResponse(userClient.getUserInfoByIds(orderInfoList.stream().map(OrderInfo::getCreatedBy).collect(Collectors.toList())));
         List<OrderManagerDto> result=new ArrayList<>();
         for(OrderInfo orderInfo:orderInfoList){
-            for(UserInfoDto userInfoDto:userInfoDtoList){
+            for(UserInfoDto userInfoDto:userInfoDtoList)    {
                 if(orderInfo.getCreatedBy().equals(userInfoDto.getId())){
                     result.add(new OrderManagerDto(orderInfo,userInfoDto));
                     break;
                 }
             }
         }
+        return Response.buildResult(result);
+    }
+
+    @Override
+    public Response<String> addOrder(OrderInfo orderInfo, Long suId){
+        orderManagerService.addOrder(orderInfo,suId);
+        return Response.buildResult("下订单成功！");
     }
 }
