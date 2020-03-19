@@ -13,6 +13,9 @@ public class OrderManagerDto implements Serializable {
     private UserInfoDto createdPerson;
     private UserInfoDto lastUpdPerson;
 
+    public OrderManagerDto() {
+    }
+
     public OrderManagerDto(OrderInfo orderInfo, UserInfoDto createdPerson) {
         this.id=orderInfo.getId();
         this.orderTitle=orderInfo.getOrderTitle();

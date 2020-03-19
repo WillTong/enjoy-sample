@@ -13,3 +13,17 @@ mapping:
     service:
       uri: com.enjoy.sample.order.client.OrderClient
       method: addOrder
+  ###删除订单###
+  /order/order/deleteOrder:
+    request:
+      method: POST
+    service:
+      uri: com.enjoy.sample.order.client.OrderClient
+      method: deleteOrder
+  ###修改订单###
+  /order/order/editOrder:
+    request:
+      method: POST
+    service:
+      uri: com.enjoy.sample.order.client.OrderClient
+      method: editOrder

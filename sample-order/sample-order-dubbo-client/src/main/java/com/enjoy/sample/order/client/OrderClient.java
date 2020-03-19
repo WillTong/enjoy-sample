@@ -20,5 +20,23 @@ public interface OrderClient {
      */
     Response<List<OrderManagerDto>> searchOrderManagerList(@Param("dataScope") Map<String, Object[]> dataScope);
 
+    /**
+     * 创建订单
+     * @param orderInfo
+     */
     Response<String> addOrder(@Param("orderInfo")OrderInfo orderInfo, @Param("suId")Long suId);
+
+    /**
+     * 删除订单
+     * @param orderId
+     * @param suId
+     */
+    Response<String> deleteOrder(@Param("orderId") Long orderId,@Param("suId") Long suId);
+
+    /**
+     * 编辑订单
+     * @param orderInfo
+     * @param suId
+     */
+    Response<String> editOrder(@Param("orderInfo")OrderInfo orderInfo, @Param("suId")Long suId);
 }

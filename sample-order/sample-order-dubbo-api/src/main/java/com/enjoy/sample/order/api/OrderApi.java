@@ -11,6 +11,7 @@ import com.enjoy.sample.user.model.dto.UserInfoDto;
 import org.apache.dubbo.config.annotation.Reference;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,5 +46,17 @@ public class OrderApi implements OrderClient {
     public Response<String> addOrder(OrderInfo orderInfo, Long suId){
         orderManagerService.addOrder(orderInfo,suId);
         return Response.buildResult("下订单成功！");
+    }
+
+    @Override
+    public Response<String> deleteOrder(Long orderId, Long suId){
+        orderManagerService.deleteOrder(orderId,suId);
+        return Response.buildResult("删除订单成功！");
+    }
+
+    @Override
+    public Response<String> editOrder(OrderInfo orderInfo, Long suId){
+        orderManagerService.editOrder(orderInfo,suId);
+        return Response.buildResult("修改订单成功！");
     }
 }

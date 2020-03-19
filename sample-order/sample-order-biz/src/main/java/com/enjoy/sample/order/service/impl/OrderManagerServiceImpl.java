@@ -31,4 +31,16 @@ public class OrderManagerServiceImpl implements OrderManagerService {
     public void addOrder(OrderInfo orderInfo,Long suId){
         orderInfoMapper.insertSelective(orderInfo);
     }
+
+    @Override
+    @Transactional
+    public void deleteOrder(Long orderId,Long suId){
+        orderInfoMapper.deleteByPrimaryKey(orderId);
+    }
+
+    @Override
+    @Transactional
+    public void editOrder(OrderInfo orderInfo,Long suId){
+        orderInfoMapper.updateByPrimaryKeySelective(orderInfo);
+    }
 }
