@@ -10,7 +10,6 @@ import com.enjoy.sample.user.model.dto.UserInfoDto;
 import com.enjoy.sample.user.model.dto.UserManageListDto;
 import com.enjoy.sample.user.model.entity.UserInfo;
 import com.enjoy.sample.user.model.vo.UserManageListVo;
-import com.enjoy.sample.user.service.UserAuthService;
 import com.enjoy.sample.user.service.UserInfoService;
 import com.enjoy.sample.user.service.UserManageService;
 import org.apache.dubbo.config.annotation.Service;
@@ -29,15 +28,13 @@ public class UserApi implements UserClient {
     @Autowired
     private DataScopeService dataScopeService;
     @Autowired
-    private UserAuthService userAuthService;
-    @Autowired
     private UserManageService userManageListService;
     @Autowired
     private UserInfoService userInfoService;
 
     @Override
     public LoginResponse<String> login(String userCode, String userPwd) {
-        UserInfo userInfo=userAuthService.login(userCode,userPwd);
+        UserInfo userInfo=userInfoService.login(userCode,userPwd);
         return LoginResponse.buildResult(userInfo.getId().toString(),userInfo.getUserName());
     }
 

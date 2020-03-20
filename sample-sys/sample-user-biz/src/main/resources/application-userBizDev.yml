@@ -1,0 +1,31 @@
+spring:
+  profile: devUser
+  datasource:
+    druid:
+      user:
+        platform: mysql
+        type: com.alibaba.druid.pool.DruidDataSource
+        driverClassName: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/user?useSSL=false&useUnicode=true&allowMultiQueries=true&characterEncoding=UTF8&serverTimezone=GMT%2B8&zeroDateTimeBehavior=convertToNull
+        username: root
+        password: will
+        initialSize: 5
+        minIdle: 5
+        maxActive: 20
+        maxWait: 10000
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 600000
+        validationQuery: select 1
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        maxPoolPreparedStatementPerConnectionSize: -1
+  redis:
+    host: 127.0.0.1
+    password: will
+    port: 6379
+    jedis:
+      pool:
+        max-idle: 500
+        min-idle: 50
+        max-active: 2000

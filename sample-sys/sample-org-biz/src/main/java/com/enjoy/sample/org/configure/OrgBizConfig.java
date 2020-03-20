@@ -1,4 +1,4 @@
-package com.enjoy.sample.sys.configure;
+package com.enjoy.sample.org.configure;
 
 import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -8,46 +8,43 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import javax.sql.DataSource;
 
 @Configuration
-@MapperScan(basePackages = "com.enjoy.sample.user.dao", sqlSessionFactoryRef = "userSqlSessionFactory")
-public class UserDataSourceConfig {
+@ComponentScan("com.enjoy.sample.org.service")
+@MapperScan(basePackages = "com.enjoy.sample.org.dao", sqlSessionFactoryRef = "orgSqlSessionFactory")
+public class OrgBizConfig {
 
     @Bean
-    @Primary
-    @ConfigurationProperties(prefix = "spring.datasource.user")
-    public DataSource userDataSource() {
+    @ConfigurationProperties(prefix = "spring.datasource.druid.org")
+    public DataSource orgDataSource() {
         return DruidDataSourceBuilder.create().build();
     }
 
     @Bean
-    @Primary
-    public SqlSessionFactory userSqlSessionFactory(@Qualifier("userDataSource") DataSource datasource)
+    public SqlSessionFactory orgSqlSessionFactory(@Qualifier("orgDataSource") DataSource datasource)
             throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(datasource);
         bean.setMapperLocations(
-                new PathMatchingResourcePatternResolver().getResources("classpath*:mapper/user/*.xml"));
-        bean.setConfigLocation(new PathMatchingResourcePatternResolver().getResource("classpath:/mybatis-config-user.xml"));
+                new PathMatchingResourcePatternResolver().getResources("classpath*:mapper/org/*.xml"));
+        bean.setConfigLocation(new PathMatchingResourcePatternResolver().getResource("classpath:/mybatis-config-org.xml"));
         return bean.getObject();
     }
 
     @Bean
-    @Primary
-    public DataSourceTransactionManager userTransactionManager(@Qualifier("userDataSource") DataSource dataSource) {
+    public DataSourceTransactionManager orgTransactionManager(@Qualifier("orgDataSource") DataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);
     }
 
-    @Bean()
-    @Primary
-    public SqlSessionTemplate userSqlSessionTemplate(
-            @Qualifier("userSqlSessionFactory") SqlSessionFactory sessionfactory) {
+    @Bean
+    public SqlSessionTemplate orgSqlSessionTemplate(
+            @Qualifier("orgSqlSessionFactory") SqlSessionFactory sessionfactory) {
         return new SqlSessionTemplate(sessionfactory);
     }
 }
