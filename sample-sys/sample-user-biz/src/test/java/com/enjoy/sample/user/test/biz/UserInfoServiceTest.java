@@ -1,4 +1,4 @@
-package com.enjoy.sample.user.biz.test;
+package com.enjoy.sample.user.test.biz;
 
 import com.enjoy.sample.user.service.UserInfoService;
 import org.junit.Test;
@@ -9,6 +9,10 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * UserInfoService测试
+ * @author will
+ */
 public class UserInfoServiceTest extends BaseTest{
     @Autowired
     private UserInfoService userInfoService;
