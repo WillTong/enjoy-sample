@@ -3,6 +3,16 @@ spring:
     active: dev
   application:
     name: sample-sys
+  datasource:
+    druid:
+      filter:
+        stat:
+          enabled: true
+          db-type: mysql
+          mergeSql: true
+      stat-view-servlet:
+        use-global-data-source-stat: true
+        enabled: true
 
 logging:
   config: classpath:logback-boot.xml

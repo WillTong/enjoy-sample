@@ -3,6 +3,16 @@ spring:
     active: dev
   application:
     name: sample-order
+  datasource:
+    druid:
+      filter:
+        stat:
+          enabled: true
+          db-type: mysql
+          mergeSql: true
+      stat-view-servlet:
+        use-global-data-source-stat: true
+        enabled: true
 
 logging:
   config: classpath:logback-boot.xml
@@ -16,10 +26,6 @@ dubbo:
   provider:
     filter: exceptionFilter,mybatisHelperProviderFilter,-exception
     timeout: 5000
-
-mybatis:
-  configLocation: classpath:/mybatis-config-order.xml
-  mapperLocations: classpath*:/mapper/order/*Mapper.xml
 
 server:
   servlet:

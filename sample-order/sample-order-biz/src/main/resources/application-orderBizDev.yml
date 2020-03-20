@@ -1,12 +1,12 @@
 spring:
-  profile: orgBizDev
+  profile: orderBizDev
   datasource:
     druid:
-      org:
+      order:
         platform: mysql
         type: com.alibaba.druid.pool.DruidDataSource
         driverClassName: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://localhost:3306/org?useSSL=false&useUnicode=true&allowMultiQueries=true&characterEncoding=UTF8&serverTimezone=GMT%2B8&zeroDateTimeBehavior=convertToNull
+        url: jdbc:mysql://localhost:3306/order?useSSL=false&useUnicode=true&allowMultiQueries=true&characterEncoding=UTF8&serverTimezone=GMT%2B8&zeroDateTimeBehavior=convertToNull
         username: root
         password: will
         initialSize: 1
