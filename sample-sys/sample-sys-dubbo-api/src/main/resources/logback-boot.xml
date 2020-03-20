@@ -9,13 +9,8 @@
         </encoder>
     </appender>
 
-    <logger name="com.enjoy.sample.user.dao" level="DEBUG" additivity="false">
-        <appender-ref ref="CONSOLE" />
-    </logger>
-
-    <logger name="com.enjoy.sample.org.dao" level="DEBUG" additivity="false">
-        <appender-ref ref="CONSOLE" />
-    </logger>
+    <include resource="logback-user-biz.xml"/>
+    <include resource="logback-org-biz.xml"/>
 
     <root level="INFO">
         <appender-ref ref="CONSOLE" />
