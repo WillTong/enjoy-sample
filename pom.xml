@@ -15,4 +15,11 @@
         <module>sample-order</module>
         <module>sample-dependencies</module>
     </modules>
+
+    <repositories>
+        <repository>
+            <id>lecc</id>
+            <url>http://10.155.18.10:5555/repository/3rd-neusoft/</url>
+        </repository>
+    </repositories>
 </project>
