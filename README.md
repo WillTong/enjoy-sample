@@ -23,11 +23,19 @@ vo是入参实体。
 这个项目负责dubbo服务的注册，服务间调用等工作。这个服务可以打成jar包独立运行。
 - dubbo-client是dubbo服务的调用接口   
 
-## 多数据源
-可以参考sample-sys-dubbo-api的写法。UserDataSourceConfig负责加载user数据库，OrgDataSourceConfig负责加载org数据库。
+## 配置分层
+biz使用逻辑层的配置。
+例如application-orderBizDev.yml是订单逻辑层的开发环境配置，OrderBizConfig是订单逻辑层的配置类，logback-order-biz.xml是订单逻辑层的sql输出配置。
+它们在服务层进行重新组合。例如sys微服务组合了user和org两个逻辑层。
 
 ## 数据库连接池监控
-使用了druid的连接池监控。10001是sys服务的数据库监控，10002是order服务的监控。
+使用了druid的连接池监控。10001是sys服务的数据库监控，10002是order服务的监控。如果是多数据源则需要配置
+```yaml
+use-global-data-source-stat: true
+```
+
+##junit
+支持在biz和api两个项目上编写不同级别的junit。参照UserInfoServiceTest和UserApiTest。
 
 ## url介绍
 - /sys/user/login   
