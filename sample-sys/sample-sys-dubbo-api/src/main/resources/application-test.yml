@@ -1,0 +1,14 @@
+spring:
+  profile: test
+  profiles:
+    include: userBizDev,orgBizDev
+
+nacos:
+  config:
+    server-addr: 127.0.0.1:8848
+    dataIds: sample-user-biz-test.yml,sample-org-biz-test.yml,sample-sys-dubbo-api-test.yml
+    type: yaml
+    group: sample-sys
+    namespace: enjoy-sample-test
+    bootstrap:
+      enable: true

@@ -1,0 +1,12 @@
+spring:
+  profile: test
+
+nacos:
+  config:
+    server-addr: 127.0.0.1:8848
+    dataIds: sample-order-biz-test.yml,sample-order-dubbo-api-test.yml
+    type: yaml
+    group: sample-order
+    namespace: enjoy-sample-test
+    bootstrap:
+      enable: true

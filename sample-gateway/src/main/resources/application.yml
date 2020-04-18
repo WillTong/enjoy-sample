@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: dev
+    active: test
   application:
     name: sample-gateway
 
@@ -13,6 +13,3 @@ enjoy:
         tokenName: Access-Token
     app:
       webConfig: classpath:/routers/*
-
-logging:
-  config: classpath:logback-boot.xml
