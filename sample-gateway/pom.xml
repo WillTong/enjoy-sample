@@ -26,13 +26,8 @@
         <dependency>
             <groupId>com.enjoy</groupId>
             <artifactId>spring-boot-starter-enjoy-web</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.apache.curator</groupId>
-                    <artifactId>curator-recipes</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
+
         <dependency>
             <groupId>org.apache.curator</groupId>
             <artifactId>curator-recipes</artifactId>
