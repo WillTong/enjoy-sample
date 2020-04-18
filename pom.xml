@@ -10,7 +10,7 @@
     <version>${revision}</version>
 
     <properties>
-        <revision>2.0</revision>
+        <revision>2.0.0</revision>
         <skip_maven_deploy>true</skip_maven_deploy>
     </properties>
 
