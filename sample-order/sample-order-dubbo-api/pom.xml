@@ -5,7 +5,7 @@
     <parent>
         <artifactId>sample-order</artifactId>
         <groupId>com.enjoy.sample</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>${revision}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -13,17 +13,17 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.enjoy.sample</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>sample-order-dubbo-client</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.enjoy.sample</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>sample-order-biz</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.enjoy.sample</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>sample-sys-dubbo-client</artifactId>
             <version>${project.version}</version>
         </dependency>
