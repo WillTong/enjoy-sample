@@ -34,8 +34,13 @@ biz使用逻辑层的配置。
 use-global-data-source-stat: true
 ```
 
-##junit
+## junit
 支持在biz和api两个项目上编写不同级别的junit。参照UserInfoServiceTest和UserApiTest。
+
+## nacos配置中心与注册中心
+当使用test的profile启动的时候，会自动拉取已经维护好的nacos的配置，并且将服务注册到nacos上。nacos的建表语句在db文件夹中的nacos.sql，使用的版本是1.2.1。   
+- nacos如何使用
+管理员账号是nacos，密码是nacos。测试环境账号是enjoy-sample-test密码也是enjoy-sample-test。namespace按照每个项目和环境来区分。例如enjoy-sample项目的测试环境就使用enjoy-sample-test命名空间。
 
 ## url介绍
 - /sys/user/login   
