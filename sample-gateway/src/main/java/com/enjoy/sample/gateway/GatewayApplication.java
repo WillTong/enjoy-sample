@@ -2,6 +2,7 @@ package com.enjoy.sample.gateway;
 
 import com.enjoy.web.api.SignIntercepter;
 import com.enjoy.web.interceptor.LoginIntercepter;
+import com.enjoy.web.interceptor.ParseRequestInterceptor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.MultipartConfigFactory;
@@ -30,9 +31,14 @@ public class GatewayApplication {
     public SignIntercepter signIntercepter(){
         Map<String,String> secretMap=new HashMap<>();
         secretMap.put("lecc","fefwefsfweffffqwee");
-        SignIntercepter signIntercepter=new SignIntercepter(1,secretMap);
+        SignIntercepter signIntercepter=new SignIntercepter(2,secretMap);
         signIntercepter.addProtected("/sso/third/**");
         return signIntercepter;
+    }
+
+    @Bean
+    public ParseRequestInterceptor parseRequestInterceptor(){
+        return new ParseRequestInterceptor(100);
     }
 
     /**
