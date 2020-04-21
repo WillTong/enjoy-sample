@@ -5,7 +5,7 @@
     <parent>
         <artifactId>sample-order</artifactId>
         <groupId>com.enjoy.sample</groupId>
-        <version>${revision}</version>
+        <version>${sample.version}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
