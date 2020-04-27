@@ -1,5 +1,14 @@
 spring:
   profile: dev
+  redis:
+    host: 127.0.0.1
+    password: will
+    port: 6379
+    jedis:
+      pool:
+        max-idle: 500
+        min-idle: 50
+        max-active: 2000
 
 dubbo:
   registry:

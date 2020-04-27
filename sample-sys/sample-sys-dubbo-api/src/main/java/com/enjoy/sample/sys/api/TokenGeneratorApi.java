@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * token服务
  * @author will
  */
-@Service
+//@Service
 public class TokenGeneratorApi implements TokenGenerator {
 
     @Autowired
