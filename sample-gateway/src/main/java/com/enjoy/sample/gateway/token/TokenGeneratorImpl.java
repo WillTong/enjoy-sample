@@ -1,8 +1,6 @@
-package com.enjoy.sample.user.service.impl;
+package com.enjoy.sample.gateway.token;
 
 import com.enjoy.common.inf.TokenGenerator;
-import com.enjoy.sample.user.redis.AuthRedis;
-import com.enjoy.sample.user.service.TokenGeneratorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
@@ -10,8 +8,13 @@ import org.springframework.stereotype.Service;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * token服务
+ * @author will
+ */
 @Service
-public class TokenGeneratorServiceImpl implements TokenGeneratorService {
+public class TokenGeneratorImpl implements TokenGenerator {
+
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 

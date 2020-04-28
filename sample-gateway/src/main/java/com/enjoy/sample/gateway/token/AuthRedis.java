@@ -1,4 +1,4 @@
-package com.enjoy.sample.user.redis;
+package com.enjoy.sample.gateway.token;
 
 import com.enjoy.common.inf.IRedisEnum;
 
