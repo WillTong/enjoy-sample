@@ -20,7 +20,7 @@ public class UserManageServiceImpl implements UserManageService {
     public Page<UserManageListDto> searchUserManageList(UserManageListVo userManageListVo, Page page) {
         PageHelper pageHelper=PageHelper.build(page);
         //添加模糊查询
-        if(userManageListVo.getUserName()!=null){
+        if(userManageListVo!=null&&userManageListVo.getUserName()!=null){
             userManageListVo.setUserName(String.join("%",userManageListVo.getUserName(),"%"));
         }
         List<UserManageListDto> userManageListDtoList=sysUserCustomMapper.selectUserManageList(userManageListVo,pageHelper.buildRowBounds());
