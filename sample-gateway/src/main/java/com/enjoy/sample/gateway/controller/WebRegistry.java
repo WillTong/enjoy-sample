@@ -21,7 +21,7 @@ import java.util.Map;
 public class WebRegistry implements InitializingBean {
 
     @Autowired
-    private Executor executor;
+    private UserClient userClient;
 
     /**
      * 数据范围权限相关
@@ -30,7 +30,6 @@ public class WebRegistry implements InitializingBean {
     @Override
     public void afterPropertiesSet() {
         ParameterHandler.register("dataScope", (ParameterAction<Map<String, Object[]>>) (params, request) -> {
-            UserClient userClient = (UserClient) executor.getBean(UserClient.class);
             Map<String, Object[]> dataScope = MethodUtil.convertResponse(userClient.getMyDataScope(Long.valueOf(RequestVars.getSessionUserId(request))));
             return dataScope;
         });
