@@ -22,7 +22,7 @@
         <druid.version>1.1.18</druid.version>
         <mybatis.version>1.3.2</mybatis.version>
         <apache-commons.version>3.7</apache-commons.version>
-        <zookeeper.version>3.4.14</zookeeper.version>
+        <zookeeper.version>3.7.2</zookeeper.version>
         <nacos-config.version>0.2.7</nacos-config.version>
     </properties>
 
